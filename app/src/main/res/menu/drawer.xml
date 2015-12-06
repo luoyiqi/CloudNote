@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_note"
+            android:icon="@drawable/note"
+            android:title="note" />
+        <item
+            android:id="@+id/drawer_book"
+            android:icon="@drawable/notebook"
+            android:title="notebook" />
+        <item
+            android:id="@+id/drawer_waste"
+            android:icon="@drawable/waste"
+            android:title="waste" />
+    </group>
+</menu>

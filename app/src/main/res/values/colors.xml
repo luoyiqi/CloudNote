@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#20b2aa</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="window_background">#FFF5F5F5</color>
+    <color name="primary">#ffcc00</color>
+    <color name="primary_pressed">#ff9933</color>
+    <color name="ripple">#ccffcc</color>
+    <color name="barPrimary">#20b2aa</color>
+    <color name="textColorPrimary">#ff9933</color>
+    <color name="windowBackground">@android:color/white</color>
+</resources>
