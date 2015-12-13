@@ -3,4 +3,11 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string name="exit_app">再按一次退出程序</string>
+    <string name="edit_hint">请输入标题</string>
+    <string name="edit_label">请输入标题</string>
+    <string name="edit2_hint">请输入内容</string>
+    <string name="edit2_label">请输入内容</string>
+    <string name="remind">请选择笔记本</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

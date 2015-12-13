@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.administraor.cloudnote.activity.activity.activity.activity_editNote">
+
+    <include
+        android:id="@+id/include_noteBar"
+        layout="@layout/include_note_toolbar"/>
+
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/titleEdit"
+        android:layout_below="@id/include_noteBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_hint"
+        app:met_baseColor="#000000"
+        app:met_primaryColor="#20b2aa"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="@string/edit_label"
+        app:met_singleLineEllipsis="true"
+        app:met_maxCharacters="50"
+        app:met_errorColor="#ff0000"
+
+        />
+
+    <TextView
+        android:id="@+id/book"
+        android:text="@string/remind"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleEdit"/>
+
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_below="@id/titleEdit"
+        android:layout_toRightOf="@id/book"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+       />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/contentEdit"
+        android:layout_below="@id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/edit2_hint"
+        android:gravity="start"
+        app:met_baseColor="#000000"
+        app:met_primaryColor="#000000"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="@string/edit2_label"
+        />
+
+
+</RelativeLayout>
+

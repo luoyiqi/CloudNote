@@ -2,6 +2,8 @@ package com.example.administraor.cloudnote.activity.activity.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.util.Log;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -12,7 +14,7 @@ import java.net.URL;
  */
 public class BitmapChange {
     /*
-    * 这方法是用来将leancloud给出的URL缩略图换成bitmap从而显示在页面上
+    * 这方法可以获取到网络上的图片并显示出来
     *
     * */
     public static Bitmap getHttpBitmap(String url){
@@ -34,5 +36,9 @@ public class BitmapChange {
         }
         return bitmap;
     }
+
+
+
+
 
 }

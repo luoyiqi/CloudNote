@@ -16,12 +16,19 @@ import android.widget.Toast;
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVOSCloud;
 import com.example.administraor.cloudnote.R;
+import com.example.administraor.cloudnote.activity.activity.db.NoteDB;
+import com.example.administraor.cloudnote.activity.activity.fragment.NoteBookFragment;
+import com.example.administraor.cloudnote.activity.activity.fragment.NoteFragment;
+import com.example.administraor.cloudnote.activity.activity.model.Note;
+import com.example.administraor.cloudnote.activity.activity.model.NoteBook;
+import com.example.administraor.cloudnote.activity.activity.utils.dbUtil;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,
-        Toolbar.OnMenuItemClickListener {
+public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
     final String TAG = "MainActivity";
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
@@ -33,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private long exitTime = 0;
+    private NoteDB noteDB;
 
 
     @Override
@@ -53,8 +61,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
-        setupDrawerContent(mNavigationView);
+        setupDrawerContent(mNavigationView);//这是点击drawer里的选项后的跳转
+        //接下来开启数据库并创建note表
+        noteDB=NoteDB.getInstance(this);
+        //启动默认的notes界面，即notefragment。
+        switchToNotes();
     }
+
+    private void switchToNotes(){
+        //在这里进行获取数据库内容的操作
+        dbUtil dbUtil=new dbUtil();
+        ArrayList<Note> noteList =dbUtil.getNotes(noteDB);
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,NoteFragment.newInstance(noteList)).commit();
+    }
+
+
+    private void switchToBooks(){
+        dbUtil dbUtil=new dbUtil();
+        ArrayList<NoteBook> bookList=dbUtil.getBooks(noteDB);
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,NoteBookFragment.newInstance(bookList)).commit();
+
+    }
+
+
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -62,13 +92,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawerToggle.syncState();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.addNoteBtn:
-                break;
-        }
-    }
 
 
     @Override
@@ -97,10 +120,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.drawer_note:
-                        //<NEED>这里要写笔记本的界面，即为默认的界面
+                        switchToNotes();
                         break;
                     case R.id.drawer_book:
-                        //这里写笔记本的界面
+                        switchToBooks();
                         break;
                     case R.id.drawer_waste:
                         //这里写废纸篓的界面

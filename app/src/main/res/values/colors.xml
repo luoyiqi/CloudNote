@@ -10,4 +10,13 @@
     <color name="barPrimary">#20b2aa</color>
     <color name="textColorPrimary">#ff9933</color>
     <color name="windowBackground">@android:color/white</color>
+
+    <color name="base">@android:color/black</color>
+    <color name="hint">@android:color/black</color>
+    <color name="arrow">@android:color/black</color>
+    <color name="highlight">@android:color/black</color>
+    <color name="error">@android:color/holo_red_dark</color>
+    <color name="floating_label">@android:color/black</color>
+
+
 </resources>
